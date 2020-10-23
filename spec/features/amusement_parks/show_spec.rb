@@ -65,7 +65,6 @@ RSpec.describe "As a visitor" do
       visit "/amusement_parks/#{elitch.id}"
 
       expect(page).to have_content("Average Thrill Rating of Rides: 9/10")
-      
     end 
   end
 end 

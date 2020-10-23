@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As a visitor" do
-  describe "When I visit a mechanics index page" do
+  describe "When I visit a mechanics show page" do
     it 'I see a header saying “All Mechanics”' do
       
       mike = Mechanic.create!(
