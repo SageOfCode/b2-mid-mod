@@ -2,5 +2,11 @@
 <p>Years of Experience: <%= @mechanic.years_of_experience %></p>
 
 <p>Current rides they’re working on: <% @mechanic.rides.each do |ride| %></p>
-  <p><%= ride.name %></p>
+<p><%= ride.name %></p>
 <% end %>
+
+<%= form_tag "/mechanics/#{@mechanic.id}", method: 'get' do %>
+Assign a ride for this mechanic to work on:
+<br><%= text_field_tag :search_by_name, params[:search_by_name], placeholder: "Search For a Ride" %>
+<%= submit_tag 'Search' %>
+<% end %><br>
