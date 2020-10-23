@@ -33,12 +33,22 @@ RSpec.describe "As a visitor" do
         thrill_rating: 8
       )
 
-
-
+      RideMechanic.create!(
+        mechanic_id: mike.id,
+        ride_id: tower.id
+      )
+      RideMechanic.create!(
+        mechanic_id: mike.id,
+        ride_id: twister.id
+      )
       visit "/mechanics/#{mike.id}"
 
       expect(page).to have_content("Mike")
       expect(page).to have_content("Years of Experience: 7")
+
+      expect(page).to have_content("Current rides they’re working on:")
+      expect(page).to have_content("Tower of Doom")
+      expect(page).to have_content("Twister 2")
     end
   end
 end
