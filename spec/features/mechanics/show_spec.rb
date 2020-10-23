@@ -17,6 +17,11 @@ RSpec.describe "As a visitor" do
         years_of_experience: 7
       )
 
+      elitch = AmusementPark.create!(
+        name: "Elitch Gardens",
+        price_of_admission: 45
+      )
+
       tower = Ride.create!( 
         name: "Tower of Doom",  
         amusement_park_id: elitch.id,
@@ -28,9 +33,12 @@ RSpec.describe "As a visitor" do
         thrill_rating: 8
       )
 
+
+
       visit "/mechanics/#{mike.id}"
 
-      expect(page).to have_content("All Mechanics")
+      expect(page).to have_content("Mike")
+      expect(page).to have_content("Years of Experience: 7")
     end
   end
 end
