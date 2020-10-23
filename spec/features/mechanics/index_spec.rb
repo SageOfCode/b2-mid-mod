@@ -5,7 +5,7 @@ RSpec.describe "As a visitor" do
     it 'I see a header saying “All Mechanics”' do
       
       mike = Mechanic.create!(
-        name: "Mike",
+        name: "Mike Carman",
         years_of_experience: 7
       )
 
@@ -16,13 +16,18 @@ RSpec.describe "As a visitor" do
     it 'I see a header saying “All Mechanics”' do
       
       mike = Mechanic.create!(
-        name: "Mike",
+        name: "Mike Carman",
         years_of_experience: 7
+      )
+      efren = Mechanic.create!(
+        name: "Efren DelCarro",
+        years_of_experience: 10
       )
 
       visit '/mechanics'
 
-      expect(page).to have_content("All Mechanics")
+      expect(page).to have_content("Mike Carman: 7 Years of Experience")
+      expect(page).to have_content("Efren DelCarro: 10 Years of Experience")
     end
   end
   
