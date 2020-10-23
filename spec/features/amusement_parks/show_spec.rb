@@ -7,6 +7,16 @@ RSpec.describe "As a visitor" do
         name: "Elitch Gardens",
         price_of_admission: 45
       )
+      tower = Ride.create!( 
+        name: "Tower of Doom",  
+        amusement_park_id: elitch.id,
+        thrill_rating: 10
+      )
+      twister = Ride.create!( 
+        name: "Twister 2",
+        amusement_park_id: elitch.id,
+        thrill_rating: 8
+      )
       visit "/amusement_parks/#{elitch.id}"
 
       expect(page).to have_content("Elitch Garden")
@@ -36,9 +46,26 @@ RSpec.describe "As a visitor" do
 
     end
 
-    xit 'I see the average thrill rating of this amusement park’s rides' do
+    it 'I see the average thrill rating of this amusement park’s rides' do
+      elitch = AmusementPark.create!(
+        name: "Elitch Gardens",
+        price_of_admission: 45
+      )
 
-    
+      tower = Ride.create!( 
+        name: "Tower of Doom",  
+        amusement_park_id: elitch.id,
+        thrill_rating: 10
+      )
+      twister = Ride.create!( 
+        name: "Twister 2",
+        amusement_park_id: elitch.id,
+        thrill_rating: 8
+      )
+      visit "/amusement_parks/#{elitch.id}"
+
+      expect(page).to have_content("Average Thrill Rating of Rides: 9/10")
+      
     end 
   end
 end 

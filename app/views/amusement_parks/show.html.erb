@@ -3,5 +3,7 @@
 
 <p>Rides:</p>
 <% @park.rides.each do |ride| %>
-  <p><%= ride.name %></p>
+<p><%= ride.name %></p>
 <% end %>
+
+<p>"Average Thrill Rating of Rides: <%= @park.average_thrill.to_i %>/10"</p>
